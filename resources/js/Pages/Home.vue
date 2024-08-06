@@ -16,7 +16,7 @@ import SocialMediaLinks  from "@/Components/Blocks/SocialMediaLinks.vue";
                 class="text-slate-500 text-lg w-full lg:w-1/2 xl:w-1/2 2xl:w-1/3"
             >
                 A Backend Developer who enjoy the experience working with
-                Laravel and NodeJS, and travel during spare time.
+                Laravel, NodeJS and Vue
             </p>
 
             <SocialMediaLinks/>
