@@ -17,5 +17,6 @@ enum TypeEnum: string
     case Library = 'Library';
     case Tools = 'Tools';
     case Cloud_Server = 'Cloud Server';
+    case Database = 'Database';
     case LMS = 'Open Source Learning Management System';
 }

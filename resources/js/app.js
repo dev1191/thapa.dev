@@ -1,7 +1,8 @@
 import "./bootstrap";
 import "preline";
+import '@egjs/vue3-flicking/dist/flicking.css';
+import '@egjs/flicking-plugins/dist/pagination.css';
 import '../css/app.css';
-
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { InertiaProgress } from '@inertiajs/progress';

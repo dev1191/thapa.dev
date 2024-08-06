@@ -11,6 +11,7 @@ use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Split;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -34,7 +35,7 @@ class ProjectResource extends Resource
                         Section::make([
                             Forms\Components\TextInput::make('title')
                                 ->required()
-                                ->unique(Project::class, 'name', ignoreRecord: true)
+                                ->unique(Project::class, 'title', ignoreRecord: true)
                                 ->live(onBlur: true)
                                 ->autofocus()
                                 ->afterStateUpdated(function (string $state, Set $set) {
@@ -55,18 +56,15 @@ class ProjectResource extends Resource
                     ->schema([
                         Section::make([
                             Forms\Components\FileUpload::make('image')
-                                ->image()
-                                ->required(),
-
+                                ->image(),
                             Forms\Components\TextInput::make('url'),
-                            Forms\Components\TagsInput::make('stack')
-                                ->required()
-                                ->columnSpanFull(),
                             Forms\Components\Select::make('skills')
                                 ->multiple()
                                 ->relationship('skills', 'name')
                                 ->preload()
-                                ->searchable(),
+                                ->searchable()
+                                ->required()
+                                ->columnSpanFull(),
                         ])->grow(false)
                     ])
                     ->columnSpan(['lg' => 1]),
@@ -80,8 +78,6 @@ class ProjectResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('url')
                     ->searchable(),

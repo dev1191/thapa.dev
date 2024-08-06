@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContactRequest;
 use App\Mail\ContactMail;
 use App\Models\Contact;
+use App\Models\Project;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -22,8 +23,12 @@ class IndexController extends Controller
 
     public function project()
     {
-
-        return inertia('Project');
+        $projects = Project::where('status', true)->with('skills', function ($query) {
+            $query->select('image', 'name', 'type');
+        })
+        ->orderBy('id','desc')
+        ->get();
+        return inertia('Project', compact('projects'));
     }
 
     public function contact()
@@ -43,14 +48,14 @@ class IndexController extends Controller
         $contact->save();
 
         if ($contact) {
-            Mail::to('admin@thapa.dev')->send(new ContactMail([
+            Mail::to(config('mail.from.address'))->send(new ContactMail([
                 'subject' => 'Mail from thapa.dev',
                 'name' => $request->name,
                 'email' => $request->email,
                 'message' => $request->message,
             ]));
         }
-        
-        return Redirect::route('contact')->with('success', 'Message send sucessfully. Thankyou for contacting us.');
+
+        return Redirect::route('contact')->with('success', 'Thanks for your message. I\'ll be in touch soon as possible.');
     }
 }

@@ -12,14 +12,30 @@ class Project extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'image',
         'description',
-        'url'
+        'url',
+        'status'
     ];
 
 
-    public function skills():BelongsToMany
-     {
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'status' => 'boolean',
+        ];
+    }
+
+
+    public function skills(): BelongsToMany
+    {
         return $this->belongsToMany(Skill::class);
     }
 }

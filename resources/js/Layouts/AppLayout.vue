@@ -18,12 +18,10 @@ defineProps({
         <div class="flex flex-col min-h-screen px-4 md:px-8">
             <Navbar />
             <!-- Page Content -->
-            <main class="grow w-full max-w-4xl mx-auto">
+            <main class="grow w-full mx-auto">
                 <Toast />
                 <slot />
             </main>
-
-            <Footer />
         </div>
     </div>
 </template>

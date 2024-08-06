@@ -90,13 +90,11 @@ import LogoDark from "/public/images/logo-dark.svg";
                 <div
                     class="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0"
                 >
-            
-               
                     <div>
-                        <a
+                        <Link
                             class="relative inline-block text-black hover:text-stone-600 focus:outline-none focus:text-stone-600 dark:text-white dark:hover:text-stone-300 dark:focus:text-stone-300"
-                            href="#"
-                            >About</a
+                            :href="route('home')"
+                            >About</Link
                         >
                     </div>
                     <div>
