@@ -16,7 +16,8 @@ class Project extends Model
         'image',
         'description',
         'url',
-        'status'
+        'status',
+        'gallery'
     ];
 
 
@@ -30,6 +31,7 @@ class Project extends Model
     {
         return [
             'status' => 'boolean',
+            'gallery' => 'json'
         ];
     }
 

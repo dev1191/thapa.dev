@@ -6,6 +6,7 @@ use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Section;
@@ -49,6 +50,13 @@ class ProjectResource extends Resource
                                 ->columnSpan('full'),
                         ])
                             ->columns(2),
+                            Section::make([
+                                Forms\Components\FileUpload::make('gallery')
+                                    ->image()
+                                    ->multiple()
+                                    ->rules('image')
+                                    ->columnSpan('full'),
+                            ])
 
                     ])
                     ->columnSpan(['lg' => 2]),
