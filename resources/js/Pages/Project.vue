@@ -36,7 +36,7 @@ const options = { autoResize: true };
                 <div
                     class="flex flex-col justify-center align-center gap-4 w-[80vw] h-[80vh] text-center"
                 >
-                    <Link :href="`${project.url}`">
+                    <Link :href="`${project.url ? project.url : '#'}`">
                         <span
                             class="font-bold text-5xl hover:text-blue-500 transition-colors duration-200 leading-tight dark:text-slate-200"
                         >
