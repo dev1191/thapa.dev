@@ -11,7 +11,7 @@
     @inertiaHead
 </head>
 
-<body class="bg-stone-200 dark:bg-stone-800">
+<body class="bg-zinc-50 dark:bg-zinc-900">
     @inertia
 </body>
 

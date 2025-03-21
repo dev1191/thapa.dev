@@ -21,10 +21,16 @@ import LogoDark from "/public/images/logo-dark.svg";
                     href="/"
                     aria-label="Preline"
                 >
+                   
+                <div class="flex justify-between">
+                    <img class="rounded-full mr-2 w-12 h-12" src="/storage/avatars/01JPVPBFHFSCP6F7ZZXZRRFD4D.png"/>
                     <span
-                        class="text-black dark:text-slate-200 font-medium size-4"
-                        >thapa.dev</span
+                        class="text-black dark:text-slate-200 font-medium size-4 mt-2"
+                        >  thapa.dev</span
                     >
+                </div>
+
+                   
                 </a>
                 <!-- End Logo -->
             </div>
